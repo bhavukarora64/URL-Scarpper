@@ -39,7 +39,7 @@ import {
     async function fetchData() {
       try {
 
-        const urlAnalysis = await axios.post(`http://localhost:5000/urls`, {
+        const urlAnalysis = await axios.post(`https://url-scarpper-backend.vercel.app/urls`, {
           userId: currentUserId,
           page: 1,
           limit: 10
@@ -49,7 +49,7 @@ import {
 
 
         // Fetch link list from backend
-        const { data } = await axios.post("http://localhost:5000/url_list", {
+        const { data } = await axios.post("https://url-scarpper-backend.vercel.app/url_list", {
           analysisid: params.analysisid,
         });
 
@@ -60,7 +60,7 @@ import {
           setBrokenURL(broken_links);
         }
 
-        const res = await axios.post("http://localhost:5000/headings", {
+        const res = await axios.post("https://url-scarpper-backend.vercel.app/headings", {
           analysisid: params.analysisid,
         });
 
