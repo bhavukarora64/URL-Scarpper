@@ -184,7 +184,7 @@ app.post('/analyze', async (req, res) => {
 app.post('/signup', async (req, res) => {
   try {
     const { email, password, name } = req.body;
-    if (!email || !password) return res.status(400).json({ error: 'Email and password required' });
+    if (!email || !password || !name) return res.status(400).json({ error: 'Email and password required' });
 
     const existingUser = await prisma.users.findUnique({ where: { email } });
     if (existingUser) return res.status(409).json({ error: 'User already exists' });
