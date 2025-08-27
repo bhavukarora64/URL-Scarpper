@@ -3,7 +3,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const { URL } = require('url');
 const bcrypt = require('bcrypt');
-const { PrismaClient } = require('../src/generated/prisma');
+const { PrismaClient } = require('./src/generated/prisma');
 const jwt = require('jsonwebtoken')
 const cors = require('cors')
 
