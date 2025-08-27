@@ -13,7 +13,7 @@ const PORT = 5000;
 
 app.use(express.json());
 const corsOptions = {
-  origin: "https://url-scarpper.vercel.app/",
+  origin: "https://url-scarpper.vercel.app",
   methods: "GET,POST,PUT,DELETE"
 };
 
