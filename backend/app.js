@@ -5,8 +5,10 @@ const { URL } = require('url');
 const bcrypt = require('bcrypt');
 const { PrismaClient } = require('./src/generated/prisma');
 const jwt = require('jsonwebtoken')
+const cors = require('cors')
 
 const app = express();
+app.use(cors());
 const PORT = 5000;
 
 app.use(express.json());
