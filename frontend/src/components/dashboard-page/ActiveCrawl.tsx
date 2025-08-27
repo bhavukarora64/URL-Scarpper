@@ -12,7 +12,7 @@ export function ActiveCrawl(props: any) {
         Active crawl {props.activeCrawlCount}
       </h1>
       <div className="bg-blue-50 rounded-xl px-4 py-4 gap-4 flex flex-col mt-4">
-      {urlDetail[0] ? (urlDetail.map((element, index) => {
+      {urlDetail[0] ? (urlDetail.map((element:any, index:number) => {
             return (
               <div key={index} className="flex gap-4 items-center">
                 <LanguageOutlined color="primary" />

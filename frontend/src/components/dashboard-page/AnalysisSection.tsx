@@ -1,28 +1,8 @@
 import { AutoGraph, LinkOutlined, RemoveRedEyeOutlined } from "@mui/icons-material";
-import { useAtomValue } from "jotai";
 import { Link } from "react-router-dom";
-import { internalLinks } from "../../store/URLs";
-import { useEffect, useState } from "react";
+
 
 export function AnalysisSection(props: any) {
-  const iLinks = useAtomValue(internalLinks);
-  const [arr, setArr] = useState([]);
-  let totalInternalLinks = 0
-  let totalExternalLinks = 0
-  
-  useEffect(() => {
-    setArr(iLinks)
-    arr.forEach((linkList) => {
-      console.log(linkList)
-      if(linkList.analysis_id === element.id) totalInternalLinks += 1
-    })
-    arr.forEach((linkList) => {
-      if(linkList.analysis_id === element.id) totalExternalLinks += 1
-    })
-  }, [iLinks])
-
-
-
     return (
       <div className="overflow-x-auto rounded-xl shadow-md border-1 p-4 border-gray-200">
             <h1 className="text-xl font-semibold flex gap-2">
@@ -44,7 +24,7 @@ export function AnalysisSection(props: any) {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
-            {props.analysis[0] ? (props.analysis.map((element) => {
+            {props.analysis[0] ? (props.analysis.map((element:any) => {
 
               const utcString = element.created_at;
               const localDate = new Date(utcString);
