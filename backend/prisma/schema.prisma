@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model headings {
+  id           Int          @id @default(autoincrement())
+  analysis_id  Int
+  h1           Int?         @default(0)
+  h2           Int?         @default(0)
+  h3           Int?         @default(0)
+  h4           Int?         @default(0)
+  h5           Int?         @default(0)
+  h6           Int?         @default(0)
+  url_analyses url_analyses @relation(fields: [analysis_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "headings_ibfk_1")
+
+  @@index([analysis_id], map: "analysis_id")
+}
+
+model links {
+  id           Int          @id @default(autoincrement())
+  analysis_id  Int
+  url          String       @db.Text
+  type         links_type
+  status_code  Int?
+  error_type   String?      @db.VarChar(255)
+  url_analyses url_analyses @relation(fields: [analysis_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "links_ibfk_1")
+
+  @@index([analysis_id], map: "analysis_id")
+}
+
+model url_analyses {
+  id                     Int        @id @default(autoincrement())
+  user_id                Int
+  url                    String     @db.Text
+  title                  String?    @db.VarChar(512)
+  html_version           String?    @db.VarChar(50)
+  login_form_present     Boolean?
+  created_at             DateTime?  @default(now()) @db.DateTime(0)
+  completed_at           DateTime?  @db.DateTime(0)
+  internal_links_count   Int?       @default(0)
+  external_links_count   Int?       @default(0)
+  broken_links_count     Int?       @default(0)
+  headings               headings[]
+  links                  links[]
+  users                  users      @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "url_analyses_ibfk_1")
+
+  @@index([user_id], map: "user_id")
+}
+
+
+model users {
+  id            Int            @id @default(autoincrement())
+  email         String         @unique(map: "email") @db.VarChar(255)
+  password_hash String         @db.VarChar(255)
+  name          String?        @db.VarChar(100)
+  created_at    DateTime?      @default(now()) @db.DateTime(0)
+  url_analyses  url_analyses[]
+}
+
+enum links_type {
+  internal
+  external
+  broken
+}
