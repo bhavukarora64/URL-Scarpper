@@ -40,7 +40,7 @@ import {
     async function fetchData() {
       try {
 
-        const urlAnalysis = await axios.post(`${apiUrl}/urls`, {
+        const urlAnalysis = await axios.post(`${apiURL}/urls`, {
           userId: currentUserId,
           page: 1,
           limit: 10
@@ -50,7 +50,7 @@ import {
 
 
         // Fetch link list from backend
-        const { data } = await axios.post(`${apiUrl}/url_list`, {
+        const { data } = await axios.post(`${apiURL}/url_list`, {
           analysisid: params.analysisid,
         });
 
