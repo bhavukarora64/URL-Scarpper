@@ -7,4 +7,4 @@ export const internalLinks = atom([]);
 export const externalLinks = atom([]);
 export const analysisList = atom([]);
 export const links = atom([]);
-export const userId = atom([]);
+export const userId = atom(null);
