@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { AtSymbolIcon, LockClosedIcon } from "@heroicons/react/24/outline"
 import { useNavigate } from "react-router"
 import { useAtom} from "jotai"
@@ -11,6 +11,8 @@ export default function SignInForm() {
   const [loading, setLoading] = useState(false)
   const [, setCurrentUserId] = useAtom(userId);
   const navigate = useNavigate()
+  const usernameRef = useRef("");
+  const passwordRef = useRef("");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -51,7 +53,8 @@ export default function SignInForm() {
             <AtSymbolIcon className="w-5 h-5 text-gray-400 mr-2" />
             <input
               type="email"
-              placeholder="Email"
+              ref={usernameRef}
+              placeholder="jon.doe@mail.com"
               className="w-full bg-transparent outline-none text-gray-700 placeholder-gray-400"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -64,7 +67,8 @@ export default function SignInForm() {
             <LockClosedIcon className="w-5 h-5 text-gray-400 mr-2" />
             <input
               type="password"
-              placeholder="Password"
+              ref={passwordRef}
+              placeholder="************"
               className="w-full bg-transparent outline-none text-gray-700 placeholder-gray-400"
               value={formData.password}
               onChange={(e) => setFormData({ ...formData, password: e.target.value })}
@@ -73,13 +77,25 @@ export default function SignInForm() {
           </div>
 
           {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold shadow hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {loading ? "Signing in..." : "Sign In"}
-          </button>
+          <div className="flex gap-4">
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold shadow hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? "Signing in..." : "Sign In"}
+            </button>
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold shadow hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              onClick={() => {
+                setFormData({ email: "Demouser@gmail.com", password: "Demouser@123" })
+              }}
+            >
+              Demo Sign In
+            </button>
+          </div>
         </form>
 
         {/* Messages */}

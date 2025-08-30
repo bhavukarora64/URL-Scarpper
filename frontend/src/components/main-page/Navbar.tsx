@@ -1,6 +1,10 @@
-import { Link } from "react-router-dom";
+import { useAtom } from "jotai";
+import { userId } from "../../store/URLs";
+import { Link, useNavigate } from "react-router-dom";
 
 export function Navbar() {
+  const [,setLogin] = useAtom(userId);
+  const navigate = useNavigate();
   return (
     <nav className="bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
@@ -29,12 +33,23 @@ export function Navbar() {
           >
             Dashboard
           </Link>
-          <Link
+          {!localStorage.getItem('token') ? <Link
             to="/signin"
             className="hover:text-blue-600 transition-colors duration-200"
           >
             Login
           </Link>
+          :
+          <div
+            className="hover:text-blue-600 transition-colors duration-200 hover:cursor-pointer"
+            onClick={()=> {
+              localStorage.removeItem('token')
+              setLogin(null);
+              navigate('/signin');
+            }}
+          >
+            Logout
+          </div>}
         </div>
       </div>
     </nav>

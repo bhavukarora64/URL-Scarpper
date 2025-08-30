@@ -277,5 +277,19 @@ app.post('/headings', async (req, res) => {
   }
 });
 
+app.get('/me', async (req, res)=> {
+  const {token} = req.headers;
+  const {id} = jwt.verify(token, process.env.JWT_SECRET || "supersecret")
+  const user = await prisma.users.findUnique({ where: { id } });
+  if (!user) return res.status(404).json({
+    verified: false, 
+    error: 'User not found' });
+  else res.json({
+    verified: true,
+    error: null,
+    userId: user.id
+  })
+})
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 // module.exports = app;
