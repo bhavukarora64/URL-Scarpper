@@ -114,7 +114,7 @@ import {
   
         <div className="flex justify-between">
           <div>
-            <h1 className="text-3xl font-bold">{urlInsights.title}</h1>
+            <h1 className="text-3xl font-bold">{urlInsights.title.length > 40 ? urlInsights.title.slice(0, 100) + '...' : urlInsights.title}</h1>
             <p className="text-gray-500">{urlInsights.url}</p>
           </div>
           <div>
