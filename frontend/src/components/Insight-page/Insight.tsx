@@ -61,7 +61,7 @@ import {
           setBrokenURL(broken_links);
         }
 
-        const res = await axios.post(`${apiURL}//headings`, {
+        const res = await axios.post(`${apiURL}/headings`, {
           analysisid: params.analysisid,
         });
 
