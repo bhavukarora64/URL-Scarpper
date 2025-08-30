@@ -58,7 +58,7 @@ export function Dashboard(){
         }, 10000)
 
         return() => clearInterval(interval);
-    }, [page])
+    }, [page, currentUserId])
 
     let totalCompleted = completeURLs.length || 0;
     let totalInProgress = inProgressURLs.length || 0;

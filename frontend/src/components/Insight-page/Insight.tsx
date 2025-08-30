@@ -78,7 +78,7 @@ import {
   
     useEffect(() => {
       fetchData();
-    }, []);
+    }, [currentUserId]);
   
     if (!urlInsights) {
       return (

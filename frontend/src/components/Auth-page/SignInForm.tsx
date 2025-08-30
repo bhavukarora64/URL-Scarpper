@@ -11,8 +11,8 @@ export default function SignInForm() {
   const [loading, setLoading] = useState(false)
   const [, setCurrentUserId] = useAtom(userId);
   const navigate = useNavigate()
-  const usernameRef = useRef("");
-  const passwordRef = useRef("");
+  const usernameRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()

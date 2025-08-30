@@ -39,7 +39,7 @@ export function SearchBar() {
     if(!currentUserId || !localStorage.getItem('token')){
         navigate('/signin')
     }
-  }, [])
+  }, [currentUserId])
 
   return (
     <div className="flex flex-col items-center mt-12 px-4">
