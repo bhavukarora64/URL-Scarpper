@@ -12,15 +12,14 @@ app.use(cors());
 const PORT = 5000;
 
 app.use(express.json());
-const corsOptions = {
-  origin: "https://url-scarpper.vercel.app",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
-};
+// const corsOptions = {
+//   origin: "https://url-scarpper.vercel.app",
+//   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+//   allowedHeaders: ["Content-Type", "Authorization"],
+//   credentials: true
+// };
 
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
+app.use(cors());
 
 
 const prisma = new PrismaClient();
@@ -278,5 +277,5 @@ app.post('/headings', async (req, res) => {
   }
 });
 
-// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-module.exports = app;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// module.exports = app;
