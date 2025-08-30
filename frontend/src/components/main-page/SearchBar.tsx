@@ -20,7 +20,7 @@ export function SearchBar() {
       setRecent((prev) => [url, ...prev.slice(0, 4)]);
 
       navigate("/dashboard");
-      await axios.post("https://url-scarpper-backend.vercel.app/analyze", {
+      await axios.post("https://url-scrapper-enzt.onrender.com/analyze", {
         url,
         userId: currentUserId,
       });

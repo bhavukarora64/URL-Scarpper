@@ -21,7 +21,7 @@ export function Dashboard(){
     const currentUserId = useAtomValue(userId)
     async function fetchAnalysis() {
         setBrokenLinkCount(0);
-        const {data} = await axios.post(`https://url-scarpper-backend.vercel.app/urls`, {
+        const {data} = await axios.post(`https://url-scrapper-enzt.onrender.com/urls`, {
             userId: currentUserId,
             page: page,
             limit: 10

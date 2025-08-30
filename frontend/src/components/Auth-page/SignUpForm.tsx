@@ -16,7 +16,7 @@ export default function SignUpForm() {
     setLoading(true)
 
     try {
-      const res = await fetch("https://url-scarpper-backend.vercel.app/signup", {
+      const res = await fetch("https://url-scrapper-enzt.onrender.com/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

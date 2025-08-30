@@ -9,7 +9,7 @@ export function BrokenLinks(props: any) {
   async function fetchURLDetails(url:string){
     try{
         navigate("/dashboard");
-        await axios.post('https://url-scarpper-backend.vercel.app/analyze', {
+        await axios.post('https://url-scrapper-enzt.onrender.com/analyze', {
             url: url,
             userId: 1})
 
