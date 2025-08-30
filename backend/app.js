@@ -121,6 +121,10 @@ async function classifyLinks($, baseUrl) {
 // 🔧 Helper: Detect login form
 const hasLoginForm = ($) => $('input[type="password"]').length > 0;
 
+app.get('/', (req, res) =>{
+  res.send("Welcome to the URL Scarpper Backend")
+})
+
 // 🚀 Main Route
 app.post('/analyze', async (req, res) => {
   const { url, userId } = req.body;
