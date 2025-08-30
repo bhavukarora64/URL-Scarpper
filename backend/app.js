@@ -218,7 +218,7 @@ app.post('/login', async (req, res) => {
     // ✅ create JWT (or use sessions if you want)
     const token = jwt.sign(
       { id: user.id, email: user.email },
-      process.env.JWT_SECRET || "supersecret",
+      process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
 
@@ -279,7 +279,7 @@ app.post('/headings', async (req, res) => {
 
 app.get('/me', async (req, res)=> {
   const {token} = req.headers;
-  const {id} = jwt.verify(token, process.env.JWT_SECRET || "supersecret")
+  const {id} = jwt.verify(token, process.env.JWT_SECRET)
   const user = await prisma.users.findUnique({ where: { id } });
   if (!user) return res.status(404).json({
     verified: false, 
