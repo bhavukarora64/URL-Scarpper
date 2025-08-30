@@ -1,17 +1,20 @@
 import { ErrorOutlineOutlined } from "@mui/icons-material";
 import axios from "axios";
+import { useAtomValue } from "jotai";
 import { useNavigate } from "react-router";
+import { userId } from "../../store/URLs";
 
 export function BrokenLinks(props: any) {
   const brokenLinks = props.brokenURL|| [];
   const navigate  = useNavigate();
+  const currentUserId = useAtomValue(userId);
 
   async function fetchURLDetails(url:string){
     try{
         navigate("/dashboard");
-        await axios.post('https://url-scrapper-enzt.onrender.com/analyze', {
+        await axios.post('https://url-scarpper-backend.vercel.app/analyze', {
             url: url,
-            userId: 1})
+            userId: currentUserId})
 
     }catch(e:any){
         alert(e.message)
