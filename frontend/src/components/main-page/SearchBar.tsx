@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { userId } from "../../store/URLs";
 import { useAtomValue } from "jotai";
+const apiURL = import.meta.env.VITE_BACKEND_URL;
 
 export function SearchBar() {
   const providedURL = useRef<HTMLInputElement>(null);
@@ -20,7 +21,7 @@ export function SearchBar() {
       setRecent((prev) => [url, ...prev.slice(0, 4)]);
 
       navigate("/dashboard");
-      await axios.post("https://url-scrapper-enzt.onrender.com/analyze", {
+      await axios.post(`${apiURL}/analyze`, {
         url,
         userId: currentUserId,
       });

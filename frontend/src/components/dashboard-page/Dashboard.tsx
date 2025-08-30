@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useAtomValue } from "jotai"
 import { userId } from "../../store/URLs";
+const apiURL = import.meta.env.VITE_BACKEND_URL;
 
 export function Dashboard(){
 
@@ -21,7 +22,7 @@ export function Dashboard(){
     const currentUserId = useAtomValue(userId)
     async function fetchAnalysis() {
         setBrokenLinkCount(0);
-        const {data} = await axios.post(`https://url-scrapper-enzt.onrender.com/urls`, {
+        const {data} = await axios.post(`${apiURL}/urls`, {
             userId: currentUserId,
             page: page,
             limit: 10

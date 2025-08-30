@@ -17,6 +17,7 @@ import {
   import { useEffect, useState } from "react";
   import { HeadingStructure } from "./HeadingStructure";
   import { userId } from "../../store/URLs";
+  const apiURL = import.meta.env.VITE_BACKEND_URL;
 
   type HeadingStructure = {
     h1: number;
@@ -39,7 +40,7 @@ import {
     async function fetchData() {
       try {
 
-        const urlAnalysis = await axios.post(`https://url-scrapper-enzt.onrender.com/urls`, {
+        const urlAnalysis = await axios.post(`${apiUrl}/urls`, {
           userId: currentUserId,
           page: 1,
           limit: 10
@@ -49,7 +50,7 @@ import {
 
 
         // Fetch link list from backend
-        const { data } = await axios.post("https://url-scrapper-enzt.onrender.com/url_list", {
+        const { data } = await axios.post(`${apiUrl}/url_list`, {
           analysisid: params.analysisid,
         });
 
@@ -60,7 +61,7 @@ import {
           setBrokenURL(broken_links);
         }
 
-        const res = await axios.post("https://url-scrapper-enzt.onrender.com/headings", {
+        const res = await axios.post(`${apiURL}//headings`, {
           analysisid: params.analysisid,
         });
 

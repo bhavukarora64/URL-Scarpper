@@ -8,6 +8,7 @@ export default function SignUpForm() {
   const [success, setSuccess] = useState("")
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
+  const apiURL = import.meta.env.VITE_BACKEND_URL;
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -16,7 +17,7 @@ export default function SignUpForm() {
     setLoading(true)
 
     try {
-      const res = await fetch("https://url-scrapper-enzt.onrender.com/signup", {
+      const res = await fetch(`${apiURL}/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

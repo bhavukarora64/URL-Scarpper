@@ -13,6 +13,7 @@ export default function SignInForm() {
   const navigate = useNavigate()
   const usernameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+  const apiURL = import.meta.env.VITE_BACKEND_URL;
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -21,7 +22,7 @@ export default function SignInForm() {
     setLoading(true)
 
     try {
-      const res = await fetch("https://url-scrapper-enzt.onrender.com/login", {
+      const res = await fetch(`${apiURL}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
