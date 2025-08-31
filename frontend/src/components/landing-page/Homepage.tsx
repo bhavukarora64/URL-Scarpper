@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
 import heroImage from "../../assets/dashboard.png";
+import myMovie from "../../assets/My Movie.mp4"; // adjust path if needed
 
 const Homepage = () => {
     const navigate = useNavigate();
@@ -151,37 +152,37 @@ const Homepage = () => {
       </section>
 
       {/* Demo Section */}
-      <section id="demo" className="py-24 px-6 bg-slate-50/50">
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="mb-16">
-            <div className="inline-block px-4 py-2 bg-indigo-100/80 backdrop-blur-sm rounded-full border border-indigo-200/50 mb-6">
-              <span className="text-sm font-medium text-indigo-700">📹 See It In Action</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Watch How It 
-              <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 bg-clip-text text-transparent block">Works</span>
-            </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              See our powerful analysis engine in action with a real-time demonstration.
-            </p>
+    <section id="demo" className="py-24 px-6 bg-slate-50/50">
+      <div className="max-w-6xl mx-auto text-center">
+        <div className="mb-16">
+          <div className="inline-block px-4 py-2 bg-indigo-100/80 backdrop-blur-sm rounded-full border border-indigo-200/50 mb-6">
+            <span className="text-sm font-medium text-indigo-700">📹 See It In Action</span>
           </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Watch How It{" "}
+            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 bg-clip-text text-transparent block">
+              Works
+            </span>
+          </h2>
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            See our powerful analysis engine in action with a real-time demonstration.
+          </p>
+        </div>
 
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl blur-2xl opacity-20 group-hover:opacity-30 transition-all duration-300" />
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-indigo-500/20 hover:shadow-indigo-500/30 transition-all duration-300 border border-indigo-200/20 bg-white/50 backdrop-blur-sm">
-              <div className="aspect-video bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-indigo-500/20 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-all duration-500 ease-out">
-                    <div className="w-0 h-0 border-l-[12px] border-l-indigo-600 border-y-[8px] border-y-transparent ml-1" />
-                  </div>
-                  <p className="text-lg font-medium text-slate-600">Demo Video Coming Soon</p>
-                  <p className="text-sm text-slate-500">Interactive demo available now</p>
-                </div>
-              </div>
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl blur-2xl opacity-20 group-hover:opacity-30 transition-all duration-300" />
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-indigo-500/20 hover:shadow-indigo-500/30 transition-all duration-300 border border-indigo-200/20 bg-white/50 backdrop-blur-sm">
+            <div className="aspect-video">
+              <video
+                src={myMovie}
+                controls
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* CTA Section */}
       <section className="py-24 px-6 relative overflow-hidden">
