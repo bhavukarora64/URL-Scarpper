@@ -10,13 +10,13 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
         {/* Logo / Brand */}
         <Link to="/" className="text-2xl font-bold text-blue-600">
-          URL Crawler
+          _Scan_Url_
         </Link>
 
         {/* Links */}
         <div className="flex items-center gap-8 text-gray-700 font-medium">
           <Link
-            to="/"
+            to="/homepage"
             className="hover:text-blue-600 transition-colors duration-200"
           >
             Home

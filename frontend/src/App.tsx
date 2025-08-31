@@ -10,6 +10,7 @@ import { userId } from './store/URLs'
 import { useAtom } from 'jotai'
 import { useEffect } from 'react'
 import axios from 'axios'
+import Homepage from './components/landing-page/homepage'
 
 function App() {
   const [, setUser] = useAtom(userId)
@@ -31,6 +32,7 @@ function App() {
   return (
       <BrowserRouter>
         <Routes>
+          <Route path="/homepage" element={<Homepage />}/>
           <Route path="/" element={<MainPage />}/>
           <Route path="/dashboard" element={<Dashboard />}/>
           <Route path="/insights/:analysisid/:userid" element={<Insight />}/>
