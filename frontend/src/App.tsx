@@ -10,7 +10,7 @@ import { userId } from './store/URLs'
 import { useAtom } from 'jotai'
 import { useEffect } from 'react'
 import axios from 'axios'
-import Homepage from './components/landing-page/homepage'
+import Homepage from './components/landing-page/Homepage'
 
 function App() {
   const [, setUser] = useAtom(userId)
