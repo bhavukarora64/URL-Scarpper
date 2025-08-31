@@ -8,7 +8,7 @@ const Homepage = () => {
       {/* Navbar */}
       <header className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md border-b border-slate-200/50 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 onClick={()=> {navigate('/homepage')}} className="text-2xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 bg-clip-text text-transparent hover:cursor-pointer">
+          <h1 onClick={()=> {navigate('/')}} className="text-2xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 bg-clip-text text-transparent hover:cursor-pointer">
             _Scan_Url_
           </h1>
           <nav className="space-x-8 hidden md:flex">
@@ -62,7 +62,7 @@ const Homepage = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-              <button onClick={()=>{navigate('/')}} className="inline-flex items-center justify-center whitespace-nowrap rounded-xl text-lg font-semibold h-14 px-10 min-w-[200px] bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/40 hover:scale-105 active:scale-95 transition-all duration-300">
+              <button onClick={()=>{navigate('/url')}} className="inline-flex items-center justify-center whitespace-nowrap rounded-xl text-lg font-semibold h-14 px-10 min-w-[200px] bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/40 hover:scale-105 active:scale-95 transition-all duration-300">
                 Start Analyzing Free
               </button>
               <a href="#demo"><button className="inline-flex items-center justify-center whitespace-nowrap rounded-xl text-lg font-semibold h-14 px-10 min-w-[200px] border-2 border-indigo-600/20 text-indigo-600 bg-white/10 backdrop-blur-md hover:bg-indigo-600 hover:text-white hover:scale-105 active:scale-95 shadow-md hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300">
@@ -265,7 +265,7 @@ const Homepage = () => {
           </div>
           
           <div className="pt-8 border-t border-slate-200/50 text-center text-slate-600">
-            <p>&copy; {new Date().getFullYear()} _Scan_Url_. Built with ❤️ for developers.</p>
+            <p>&copy; {new Date().getFullYear()} ScanURL. Built with ❤️ for developers.</p>
           </div>
         </div>
       </footer>

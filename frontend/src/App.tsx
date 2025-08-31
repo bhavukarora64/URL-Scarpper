@@ -32,8 +32,8 @@ function App() {
   return (
       <BrowserRouter>
         <Routes>
-          <Route path="/homepage" element={<Homepage />}/>
-          <Route path="/" element={<MainPage />}/>
+          <Route path="/" element={<Homepage />}/>
+          <Route path="/url" element={<MainPage />}/>
           <Route path="/dashboard" element={<Dashboard />}/>
           <Route path="/insights/:analysisid/:userid" element={<Insight />}/>
           <Route path='/signin' element={<SignInForm />} />

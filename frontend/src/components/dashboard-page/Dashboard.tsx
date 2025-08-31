@@ -68,7 +68,7 @@ export function Dashboard(){
         <div className="mx-24 mt-12">
         <button className="border-1 p-2 flex items-center border-gray-300 rounded-md mb-6 text-sm hover:bg-gray-100 hover:cursor-pointer">
           <ArrowBack fontSize="small" />
-          <Link to="/">
+          <Link to="/url">
             <p className="mx-2">Back to URL Searcher</p>
           </Link>
         </button>
@@ -83,7 +83,7 @@ export function Dashboard(){
             <div className="flex justify-end mt-12 gap-2">
                 <button className="border-1 p-2 flex items-center border-gray-300 rounded-md mb-3 text-sm hover:cursor-pointer hover:bg-red-400 bg-red-200"> 
                     <CodeOutlined fontSize="medium" />
-                    <Link to="/"><p className="mx-2 font-bold">Add URL</p></Link>
+                    <Link to="/url"><p className="mx-2 font-bold">Add URL</p></Link>
                 </button>
             </div>
             <div>

@@ -34,7 +34,7 @@ export default function SignInForm() {
       localStorage.setItem("token", data.token)
 
       setCurrentUserId(data.user.id)
-      navigate("/")
+      navigate("/url")
       setSuccess("Login successful!")
     } catch (err: any) {
       setError(err.message)

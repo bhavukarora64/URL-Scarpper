@@ -16,7 +16,7 @@ export function Navbar() {
         {/* Links */}
         <div className="flex items-center gap-8 text-gray-700 font-medium">
           <Link
-            to="/homepage"
+            to='/'
             className="hover:text-blue-600 transition-colors duration-200"
           >
             Home
