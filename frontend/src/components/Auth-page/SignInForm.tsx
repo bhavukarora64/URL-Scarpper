@@ -78,7 +78,7 @@ export default function SignInForm() {
           </div>
 
           {/* Submit Button */}
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-col md:flex-row">
             <button
               type="submit"
               disabled={loading}
