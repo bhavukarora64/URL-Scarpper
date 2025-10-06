@@ -17,10 +17,10 @@ export function HeadingStructure(props: any) {
     const headingCount = props.urlInsights[0].h1 + props.urlInsights[0].h2 + props.urlInsights[0].h3 + props.urlInsights[0].h4 + props.urlInsights[0].h5 + props.urlInsights[0].h6 
 
     return (
-      <div className="rounded-xl shadow-md border-1 border-gray-200 px-4 py-4 w-full">
+      <div className="rounded-xl shadow-md border-1 border-gray-200 px-4 py-4 w-full overflow-scroll">
         <h1 className="text-xl font-semibold flex gap-2 mb-8">
             <LinkOutlined />
-            Link Distribution {props.activeCrawlCount}
+            Headings Distribution {props.activeCrawlCount}
         </h1>
         <div>
             <SimpleBarChart data={data}/>

@@ -128,33 +128,23 @@ import {
           </div>
         </div>
   
-        <div className="flex justify-between mt-12">
-          <Cards
-            heading="HTML Version"
-            count={urlInsights.html_version}
-            data={<Code fontSize="large" color="primary" />}
-          />
-          <Cards
-            heading="Total Links"
-            count={totalLinks}
-            data={<LinkOutlined fontSize="large" color="success" />}
-          />
-          <Cards heading="Headings" count={headingCount} data={<NumbersOutlined fontSize="large" style={{ color: 'purple' }}/>}/>
-          <Cards
-            heading="Login Form"
-            count={urlInsights.login_form_present ? "Yes" : "No"}
+        <div className="grid grid-cols-12 mt-12">
+          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3"><Cards heading="HTML Version" count={urlInsights.html_version} data={<Code fontSize="large" color="primary" />} /></div>
+          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3"><Cards heading="Total Links" count={totalLinks} data={<LinkOutlined fontSize="large" color="success" />} /></div>
+          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3"><Cards heading="Headings" count={headingCount} data={<NumbersOutlined fontSize="large" style={{ color: 'purple' }}/>}/></div>
+          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3"><Cards heading="Login Form" count={urlInsights.login_form_present ? "Yes" : "No"}
             data={
               <VerifiedUserOutlined
                 fontSize="large"
                 style={{ color: "orange" }}
               />
             }
-          />
+          /></div>
         </div>
   
-        <div className="mt-12 flex justify-between gap-4">
-          <LinkDistribution urlInsights={urlInsights} />
-          <HeadingStructure urlInsights={headings}/>
+        <div className="mt-12 grid grid-cols-12 gap-4">
+          <div className="col-span-12 lg:col-span-6"><LinkDistribution urlInsights={urlInsights} /></div>
+          <div className="col-span-12 lg:col-span-6"><HeadingStructure urlInsights={headings}/></div>
         </div>
   
         <div className="mt-12">

@@ -11,7 +11,7 @@ export function LinkDistribution(props: any) {
   ];
 
   return (
-    <div className="rounded-xl shadow-md border-1 border-gray-200 px-4 py-4 w-full">
+    <div className="rounded-xl shadow-md border-1 border-gray-200 px-4 py-4 w-full overflow-scroll">
       <h1 className="text-xl font-semibold flex gap-2 mb-8">
         <LinkOutlined />
         Link Distribution {props.activeCrawlCount}
@@ -40,7 +40,7 @@ export function LinkDistribution(props: any) {
 
 function SimpleBarChart({ data }: { data: any[] }) {
   return (
-    <div className="w-full h-64">
+    <div className="w-full h-120">
       <ResponsiveContainer width="80%" height="100%">
         <BarChart
           data={data}
