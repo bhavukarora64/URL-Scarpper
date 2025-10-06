@@ -74,11 +74,11 @@ export function Dashboard(){
         </button>
             <h1 className="text-3xl font-bold">Web Crawler Dashboard</h1>
             <p className="text-gray-500">Analyze website structure, links, and SEO health</p>
-            <div className="flex justify-between mt-12">
-                <Cards heading="Total URLs" count={completeURLs.length + inProgressURLs.length} data={<LanguageOutlined fontSize="large" color="primary"/>}/>
-                <Cards heading="Completed" count={totalCompleted} data={<CheckBoxOutlined fontSize="large" color="success"/>}/>
-                <Cards heading="In Progress" count={totalInProgress} data={<TimelapseOutlined fontSize="large" style={{ color: 'orange' }}/>}/>
-                <Cards heading="Broken Links Found" count={brokenLinkCount} data={<ErrorOutlineOutlined fontSize="large" style={{ color: 'red' }} />}/>
+            <div className="grid grid-cols-12 mt-12">
+                <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3"><Cards heading="Total URLs" count={completeURLs.length + inProgressURLs.length} data={<LanguageOutlined fontSize="large" color="primary"/>}/></div>
+                <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3"><Cards heading="Completed" count={totalCompleted} data={<CheckBoxOutlined fontSize="large" color="success"/>}/></div>
+                <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3"><Cards heading="In Progress" count={totalInProgress} data={<TimelapseOutlined fontSize="large" style={{ color: 'orange' }}/>}/></div>
+                <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3"><Cards heading="Broken Links Found" count={brokenLinkCount} data={<ErrorOutlineOutlined fontSize="large" style={{ color: 'red' }} />}/></div>
             </div>
             <div className="flex justify-end mt-12 gap-2">
                 <button className="border-1 p-2 flex items-center border-gray-300 rounded-md mb-3 text-sm hover:cursor-pointer hover:bg-red-400 bg-red-200"> 
